@@ -15,6 +15,13 @@ public class OutputView {
         System.out.println(GAME_START);
     }
 
+    public void printGameResult(List<String> bridge, boolean move, int trial) {
+        System.out.println(GAME_RESULT);
+        printMap(bridge, move);
+        printSuccess(move);
+        printTrial(trial);
+    }
+
     private void printTrial(int trial) {
         System.out.println(GAME_TRIAL + trial);
     }
