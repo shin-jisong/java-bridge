@@ -13,4 +13,8 @@ public class Bridge {
     public boolean isMovable(int order, String moving) {
         return Objects.equals(bridge.get(order), moving);
     }
+
+    public boolean isEnd(int size) {
+        return bridge.size() == size;
+    }
 }
