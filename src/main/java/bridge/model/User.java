@@ -23,6 +23,10 @@ public class User {
         return false;
     }
 
+    public boolean isFinish() {
+        return bridge.isEnd(userMove.size());
+    }
+
     private void validateMoving(String moving) {
         if (!moving.equals("U") && !moving.equals("D")) {
             throw new IllegalArgumentException(UserException.INVALID_STRING.getExceptionMessage());
