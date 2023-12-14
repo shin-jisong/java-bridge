@@ -14,6 +14,15 @@ public class User {
         this.bridge = bridge;
     }
 
+    public boolean canMoving(String moving) {
+        validateMoving(moving);
+        if (bridge.isMovable(userMove.size(), moving)) {
+            userMove.add(moving);
+            return true;
+        }
+        return false;
+    }
+
     private void validateMoving(String moving) {
         if (!moving.equals("U") && !moving.equals("D")) {
             throw new IllegalArgumentException(UserException.INVALID_STRING.getExceptionMessage());
