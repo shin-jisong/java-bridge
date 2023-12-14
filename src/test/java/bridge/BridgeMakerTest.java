@@ -23,5 +23,23 @@ public class BridgeMakerTest {
 
     }
 
+    @DisplayName("다리 길이가 3 미만일 경우를 테스트한다")
+    @Test
+    void checkMakeBridgeUnder3() {
+        BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+        assertThatThrownBy(() -> bridgeMaker.makeBridge(2))
+                .isInstanceOf(IllegalArgumentException.class);
+
+    }
+
+    @DisplayName("다리 길이가 20 초과일 경우를 테스트한다")
+    @Test
+    void checkMakeBridgeUp20() {
+        BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+        assertThatThrownBy(() -> bridgeMaker.makeBridge(21))
+                .isInstanceOf(IllegalArgumentException.class);
+
+    }
+
 
 }
