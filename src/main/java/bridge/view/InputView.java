@@ -26,7 +26,14 @@ public class InputView {
     public String readGameCommand() {
         System.out.println(READ_GAME_COMMAND);
         String gameCommand = Console.readLine();
+        validateGameCommand(gameCommand);
         return gameCommand;
+    }
+    
+    private void validateGameCommand(String str) {
+        if (!str.equals("R") && !str.equals("Q")) {
+            throw new IllegalArgumentException(InputException.INVALID_GAME_COMMAND.getExceptionMessage());
+        }
     }
 
     private void validateMoving(String str) {
