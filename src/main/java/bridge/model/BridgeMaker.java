@@ -1,5 +1,6 @@
 package bridge;
 
+import bridge.exception.BridgeMakerException;
 import bridge.model.BridgeNumberGenerator;
 import java.util.List;
 
@@ -19,6 +20,13 @@ public class BridgeMaker {
      * @return 입력받은 길이에 해당하는 다리 모양. 위 칸이면 "U", 아래 칸이면 "D"로 표현해야 한다.
      */
     public List<String> makeBridge(int size) {
+        validateSize(size);
         return null;
+    }
+
+    private void validateSize(int size) {
+        if (size < 3 || size > 20) {
+            throw new IllegalArgumentException(BridgeMakerException.INVALID_RANGE.getExceptionMessage());
+        }
     }
 }
