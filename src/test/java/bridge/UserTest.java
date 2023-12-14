@@ -7,6 +7,7 @@ import bridge.model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -21,6 +22,30 @@ public class UserTest {
             User user = new User(bridge);
             assertThatThrownBy(() -> user.canMoving("A"))
                     .isInstanceOf(IllegalArgumentException.class);
+        }, 1, 0, 1);
+
+    }
+
+    @DisplayName("이동 가능을 테스트한다")
+    @Test
+    void checkCanMovingTrue() {
+        assertRandomNumberInRangeTest(() -> {
+            BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+            Bridge bridge = new Bridge(bridgeMaker.makeBridge(3));
+            User user = new User(bridge);
+            assertThat(user.canMoving("D")).isTrue();
+        }, 1, 0, 1);
+
+    }
+
+    @DisplayName("이동 불가능을 테스트한다")
+    @Test
+    void checkCanMovingFalse() {
+        assertRandomNumberInRangeTest(() -> {
+            BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+            Bridge bridge = new Bridge(bridgeMaker.makeBridge(3));
+            User user = new User(bridge);
+            assertThat(user.canMoving("U")).isFalse();
         }, 1, 0, 1);
 
     }
