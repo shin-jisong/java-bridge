@@ -10,6 +10,10 @@ public class Bridge {
         this.bridge = bridge;
     }
 
+    public List<String> getBridge() {
+        return bridge;
+    }
+
     public boolean isMovable(int order, String moving) {
         return Objects.equals(bridge.get(order), moving);
     }
