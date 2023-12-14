@@ -43,4 +43,54 @@
 - 함수(또는 메서드)의 길이가 10라인을 넘어가지 않도록 구현
 - 메서드의 파라미터 개수는 최대 3개까지만 허용
 - 아래 있는 InputView, OutputView, BridgeGame, BridgeMaker, BridgeRandomNumberGenerator 클래스의 요구사항을 참고하여 구현
-- 
+
+## :heavy_check_mark: 플로우 차트
+![flow](./bridge-flow.jpg)
+
+## :heavy_check_mark: 구현
+- BridgeMaker
+  - 필드 : X
+  - 다리 길이 검증
+  - 다리 생성
+- BridgeRandomNumberGenerator
+  - 필드 : X
+  - 다리 칸 생성
+- Bridge
+  - 필드: 다리
+  - 다리 이동 가능 여부 비교
+  - 다리 끝 도달 비교
+- User
+  - 필드 : 유저 입력
+  - 이동할 칸 검증
+  - 다리 이동 성공 여부
+  - 다리 종료 여부
+- InputView
+    - 다리 길이 입력 받기
+    - 다리 길이 검증
+    - 이동할 칸 입력 받기
+    - 이동할 칸 검증
+    - 종료 여부 입력 받기
+    - 종료 여부 검증
+- OutputView
+  - 다리 출력
+  - 결과 출력
+  - 시작 문구 출력
+  - 진행 문구 출력
+  - 종료 문구 출력
+  - 게임 성공 여부 출력
+  - 총 시도한 횟수 출력
+  - 에러 출력
+- BridgeGame
+  - 게임 시작
+  - 게임 진행
+  - 게임 종료
+- InputException
+  - 다리 길이 숫자 아닐 경우
+  - 이동할 칸 한 글자 아닐 경우
+  - 게임 종료 여부 한 글자 아닐 경우
+  - 게임 종료 여부 R 또는 Q 아닐 경
+- BridgeMakerException
+  - 다리 길이 3 이상 20 이하 숫자 아닐 경우
+- UserMoveException
+   - 이동할 칸 U 혹은 D가 아닐 경우
+
