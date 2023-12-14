@@ -5,6 +5,17 @@ package bridge.model;
  */
 public class BridgeGame {
 
+    private int trial;
+    private Bridge bridge;
+    private User user;
+
+    public BridgeGame(int size) {
+        BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+        this.trial = 1;
+        this.bridge = new Bridge(bridgeMaker.makeBridge(size));
+        this.user = new User(bridge);
+    }
+
     /**
      * 사용자가 칸을 이동할 때 사용하는 메서드
      * <p>
