@@ -6,6 +6,12 @@ import java.util.stream.IntStream;
 
 public class OutputView {
 
+    private final static String GAME_START = "다리 건너기 게임을 시작합니다.\n";
+
+    public void printGameStart() {
+        System.out.println(GAME_START);
+    }
+
     public void printMap(List<String> bridge, boolean move) {
         char[][] map = makeMap(bridge);
         if (move) {
