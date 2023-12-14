@@ -18,11 +18,18 @@ public class InputView {
     public String readMoving() {
         System.out.println(READ_MOVING);
         String moving = Console.readLine();
+        validateMoving(moving);
         return moving;
     }
 
     public String readGameCommand() {
         return null;
+    }
+
+    private void validateMoving(String str) {
+        if (str.length() != 1) {
+            throw new IllegalArgumentException(InputException.INVALID_MOVING.getExceptionMessage());
+        }
     }
 
     private void validateInteger(String str) {
