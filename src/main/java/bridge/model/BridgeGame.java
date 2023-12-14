@@ -30,6 +30,10 @@ public class BridgeGame {
         this.user = new User(bridge);
     }
 
+    public int getTrial() {
+        return this.trial;
+    }
+
     public List<String> getUserMove() {
         return user.getUserMove();
     }
