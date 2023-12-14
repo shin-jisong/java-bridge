@@ -1,7 +1,7 @@
 package bridge.exception;
 
 public enum BridgeMakerException {
-    INVALID_RANGE("유효하지 않은 다리 길이입니다. 다시 입력해 주세요.");
+    INVALID_RANGE("다리 길이는 3부터 20 사이의 숫자여야 합니다.");
 
     private final String exceptionMessage;
 
