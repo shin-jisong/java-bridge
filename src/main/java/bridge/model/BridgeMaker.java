@@ -1,7 +1,6 @@
-package bridge;
+package bridge.model;
 
 import bridge.exception.BridgeMakerException;
-import bridge.model.BridgeNumberGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
