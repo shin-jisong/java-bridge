@@ -1,5 +1,7 @@
 package bridge.model;
 
+import java.util.List;
+
 /**
  * 다리 건너기 게임을 관리하는 클래스
  */
@@ -26,5 +28,9 @@ public class BridgeGame {
     public void retry() {
         this.trial += 1;
         this.user = new User(bridge);
+    }
+
+    public List<String> getUserMove() {
+        return user.getUserMove();
     }
 }
