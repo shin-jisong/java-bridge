@@ -14,6 +14,10 @@ public class User {
         this.bridge = bridge;
     }
 
+    public List<String> getUserMove() {
+        return userMove;
+    }
+
     public boolean canMoving(String moving) {
         validateMoving(moving);
         if (bridge.isMovable(userMove.size(), moving)) {
