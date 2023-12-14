@@ -7,14 +7,25 @@ import java.util.stream.IntStream;
 public class OutputView {
 
     private final static String GAME_START = "다리 건너기 게임을 시작합니다.\n";
+    private final static String GAME_RESULT = "최종 게임 결과";
+    private final static String GAME_SUCCESS = "게임 성공 여부: ";
 
     public void printGameStart() {
         System.out.println(GAME_START);
     }
 
+
+    private void printSuccess(boolean move) {
+        if (move) {
+            System.out.println(GAME_SUCCESS + "성공\n");
+            return;
+        }
+        System.out.println(GAME_SUCCESS + "실패\n");
+    }
+
     public void printMap(List<String> bridge, boolean move) {
         char[][] map = makeMap(bridge);
-        if (move) {
+        if (!move) {
             mapAddX(bridge.size() - 1, map);
         }
         String mapBridge = IntStream.range(0, map[0].length)
