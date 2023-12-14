@@ -19,6 +19,10 @@ public class BridgeGame {
         return user.canMoving(moving);
     }
 
+    public boolean finish() {
+        return user.isFinish();
+    }
+
     public void retry() {
     }
 }
