@@ -37,8 +37,4 @@ public class BridgeGame {
     public List<String> getUserMove() {
         return user.getUserMove();
     }
-
-    public List<String> getBridge() {
-        return bridge.getBridge();
-    }
 }
