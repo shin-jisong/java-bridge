@@ -24,5 +24,7 @@ public class BridgeGame {
     }
 
     public void retry() {
+        this.trial += 1;
+        this.user = new User(bridge);
     }
 }
