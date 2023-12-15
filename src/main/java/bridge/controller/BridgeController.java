@@ -14,4 +14,17 @@ public class BridgeController {
         this.inputView = new InputView();
         this.outputView = new OutputView();
     }
+
+    public void start() {
+        while (true) {
+            try {
+                outputView.printGameStart();
+                int size = inputView.readBridgeSize();
+                bridgeGame = new BridgeGame(size);
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printError(e.getMessage());
+            }
+        }
+    }
 }
