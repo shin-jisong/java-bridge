@@ -26,5 +26,27 @@ public class BridgeController {
                 outputView.printError(e.getMessage());
             }
         }
+        play();
+    }
+
+    public void play() {
+        while (true) {
+            try {
+                String moving = inputView.readMoving();
+                playing(bridgeGame.move(moving));
+            } catch (IllegalArgumentException e) {
+                outputView.printError(e.getMessage());
+            }
+        }
+    }
+
+    public void playing(boolean canMove) {
+        if (canMove) {
+            if (bridgeGame.finish()) {
+                //결과 출력
+            }
+            play();
+        }
+        //재시도
     }
 }
