@@ -3,6 +3,7 @@ package bridge.controller;
 import bridge.model.BridgeGame;
 import bridge.view.InputView;
 import bridge.view.OutputView;
+import java.util.Objects;
 
 public class BridgeController {
     private final InputView inputView;
@@ -61,12 +62,21 @@ public class BridgeController {
         while (true) {
             try {
                 String retry = inputView.readGameCommand();
+                finishOrRetry(retry);
                 break;
             } catch (IllegalArgumentException e) {
                 outputView.printError(e.getMessage());
             }
         }
+    }
 
+    private void finishOrRetry(String retry) {
+        if (Objects.equals(retry, "R")) {
+            bridgeGame.retry();
+            play();
+            return;
+        }
+        outputView.printResult(bridgeGame.getUserMove(), false, bridgeGame.getTrial());
     }
 
 
