@@ -29,7 +29,7 @@ public class BridgeController {
         play();
     }
 
-    public void play() {
+    private void play() {
         while (true) {
             try {
                 String moving = inputView.readMoving();
@@ -40,13 +40,21 @@ public class BridgeController {
         }
     }
 
-    public void playing(boolean canMove) {
+    private void playing(boolean canMove) {
         if (canMove) {
-            if (bridgeGame.finish()) {
-                //결과 출력
-            }
-            play();
+            finishOrPlay();
+            return;
         }
         //재시도
     }
+
+    private void finishOrPlay() {
+        if (bridgeGame.finish()) {
+            outputView.printResult(bridgeGame.getUserMove(), true, bridgeGame.getTrial());
+            return;
+        }
+        play();
+    }
+
+
 }
