@@ -34,6 +34,7 @@ public class BridgeController {
             try {
                 String moving = inputView.readMoving();
                 playing(bridgeGame.move(moving));
+                break;
             } catch (IllegalArgumentException e) {
                 outputView.printError(e.getMessage());
             }
@@ -45,7 +46,7 @@ public class BridgeController {
             finishOrPlay();
             return;
         }
-        //재시도
+        retry();
     }
 
     private void finishOrPlay() {
@@ -54,6 +55,18 @@ public class BridgeController {
             return;
         }
         play();
+    }
+
+    private void retry() {
+        while (true) {
+            try {
+                String retry = inputView.readGameCommand();
+                break;
+            } catch (IllegalArgumentException e) {
+                outputView.printError(e.getMessage());
+            }
+        }
+
     }
 
 
